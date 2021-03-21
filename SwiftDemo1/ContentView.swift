@@ -28,14 +28,7 @@ struct ContentView: View {
                 
             }
             .frame(width: 300, height: 150)
-                Button(action: {showIcon.toggle()}, label: {
-                Text("Show me the logo")
-                    .padding()
-                    .background(Color.blue)
-                    .cornerRadius(10)
-                    .foregroundColor(.white)
-                
-            })
+            LogoButton(showIcon: $showIcon)
             
             }
         .padding(.bottom, 130)
@@ -49,3 +42,17 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
+
+struct LogoButton: View {
+    @Binding var showIcon: Bool
+    var body: some View {
+        Button(action: {showIcon.toggle()}, label: {
+            Text("Show me the logo")
+                .padding()
+                .background(Color.blue)
+                .cornerRadius(10)
+                .foregroundColor(.white)
+            
+        })
+    }
+}
